@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "demofile": "^1.7.2",
@@ -14,5 +15,24 @@
     "mysql2": "^2.2.5",
     "node-sass-middleware": "0.11.0",
     "sequelize": "^6.3.5"
-  }
+  },
+  "main": "Config.js",
+  "bin": {
+    "csgo-demo": "database.js"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matthajus/csgo_demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matthajus/csgo_demo/issues"
+  },
+  "homepage": "https://github.com/Matthajus/csgo_demo#readme",
+  "description": ""
 }

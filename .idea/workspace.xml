@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d7dd2d-ed67-4eab-822d-7b8445d78285" name="Default Changelist" comment="" />
+    <list default="true" id="22d7dd2d-ed67-4eab-822d-7b8445d78285" name="Default Changelist" comment="Parsing + Database">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +34,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBowerSettings">
+    <node-interpreter value="project" />
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
   <component name="ProjectId" id="1iuiWnfnCmYrIq7e9XxxYrDzFhx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -23,17 +52,59 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.13.1" />
-    <property name="javascript.nodejs.core.library.typings.version" value="12.12.67" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.19.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="$APPLICATION_CONFIG_DIR$/node/node-v12.13.1-win-x64/node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tusma\WebstormProjects\csgo_demo" />
+      <recent name="C:\Users\tusma\WebstormProjects\csgo_demo\bin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\tusma\WebstormProjects\csgo_demo" />
       <recent name="C:\Users\tusma\WebstormProjects" />
     </key>
+  </component>
+  <component name="RunManager" selected="Node.js.bin\parser">
+    <configuration name="bin\parser" type="NodeJSConfigurationType" path-to-js-file="bin/parser.js" working-dir="$PROJECT_DIR$">
+      <envs>
+        <env name="DEBUG" value="csgo-demo:*" />
+      </envs>
+      <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
+        <browser url="http://localhost:3000/" />
+      </EXTENSION>
+      <method v="2" />
+    </configuration>
+    <configuration name="query" type="NodeJSConfigurationType" path-to-js-file="$PROJECT_DIR$/query.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.bin\www" />
+      <item itemvalue="Node.js.bin\parser" />
+      <item itemvalue="Node.js.query" />
+      <item itemvalue="npm.start" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -46,32 +117,69 @@
       <workItem from="1602763914304" duration="987000" />
       <workItem from="1603185923819" duration="1426000" />
       <workItem from="1603187376220" duration="3891000" />
+      <workItem from="1603274269721" duration="841000" />
+      <workItem from="1603729255440" duration="3278000" />
+      <workItem from="1603794795492" duration="2322000" />
+      <workItem from="1604320837705" duration="4516000" />
+      <workItem from="1604340334896" duration="8369000" />
+      <workItem from="1604399976067" duration="3939000" />
+      <workItem from="1605013799613" duration="10673000" />
+      <workItem from="1605791462484" duration="1885000" />
+      <workItem from="1605793381537" duration="1786000" />
+      <workItem from="1605795194369" duration="791000" />
+      <workItem from="1606136979360" duration="1781000" />
+      <workItem from="1606138786129" duration="1784000" />
+      <workItem from="1606140605291" duration="775000" />
+      <workItem from="1606144109833" duration="1782000" />
+      <workItem from="1606146212330" duration="1547000" />
+      <workItem from="1606830255623" duration="201000" />
+      <workItem from="1606830496606" duration="169000" />
+      <workItem from="1607334088530" duration="618000" />
+      <workItem from="1607334746333" duration="463000" />
+      <workItem from="1607336000257" duration="454000" />
+      <workItem from="1607343983483" duration="136000" />
+      <workItem from="1607352106807" duration="9230000" />
+      <workItem from="1607368689444" duration="10395000" />
+      <workItem from="1607515834659" duration="33194000" />
+      <workItem from="1607676827148" duration="12967000" />
+      <workItem from="1607694709120" duration="164000" />
+      <workItem from="1607694891906" duration="2292000" />
+      <workItem from="1607698278102" duration="3866000" />
+      <workItem from="1607711295128" duration="6310000" />
+      <workItem from="1607768860496" duration="13722000" />
+      <workItem from="1607857249693" duration="2542000" />
     </task>
+    <task id="LOCAL-00001" summary="Parsing + Database">
+      <created>1607858849936</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607858849936</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="636" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603188994572">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="636" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603188994572" />
-    <state width="1899" height="266" key="GridCell.Tab.0.bottom" timestamp="1603191567599">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603191567599" />
-    <state width="1899" height="266" key="GridCell.Tab.0.center" timestamp="1603191567599">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603191567599" />
-    <state width="1899" height="266" key="GridCell.Tab.0.left" timestamp="1603191567599">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603191567599" />
-    <state width="1899" height="266" key="GridCell.Tab.0.right" timestamp="1603191567599">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1899" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603191567599" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Parsing + Database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Parsing + Database" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
