@@ -1,8 +1,7 @@
 const fs = require("fs");
 const demofile = require("demofile");
-const recordedDemo = "test_3.dem";
+const recordedDemo = "backend/test_3.dem";
 const query = require('../query')
-
 
 class Match {
     constructor(matchSteamId, map, playTime, serverName, clientName, tickRate) {
