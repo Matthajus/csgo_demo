@@ -9,6 +9,7 @@ export class Match {
   serverName: string;
   clientName: string;
   tickRate: string;
+  createdAt: Date;
   Teams: Team[];
   Rounds: Round[];
 }

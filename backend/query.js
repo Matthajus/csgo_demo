@@ -9,11 +9,19 @@ const Op = Sequelize.Op
 // Find all matches
 // Raw SQL: SELECT * FROM "Matches";
 const getAllMatches = async () => {
-    const matches = await Match.findAll();
+    const matches = await Match.findAll({
+        include: {
+            model: Team,
+            include: [{model: PlayerInTeam, as: "PlayerInTeams", include: [{model: Player, as: "Player"}]}]
+        },
+        order: [
+            [Team, 'teamSide', 'asc']
+        ]
+    });
     console.log("All matches:", JSON.stringify(matches, null, 4));
     return matches;
 }
-// getAllMatches().then(() => console.log("Finish!"))
+getAllMatches().then(() => console.log("Finish!"))
 
 // Find all rounds
 // Raw SQL: SELECT * FROM "rounds";
@@ -76,7 +84,7 @@ const getPlayerIdBySteamId = async (steamId) => {
             steamId: steamId
         }
     });
-    console.log("Player id: ",foundPlayer.id);
+    console.log("Player id: ", foundPlayer.id);
     return foundPlayer.id;
 }
 // getPlayerIdBySteamId('STEAM_1:1:80015964').then(() => console.log("Finish!"))
@@ -276,8 +284,11 @@ const getAllTeamsOfMatch = async (matchId) => {
 const getAllPlayersOfMatch = async (matchId) => {
     const players = await Match.findOne({
         include: [
-            { model: Team, include: [{ model: PlayerInTeam, as: "PlayerInTeams", include: [{ model: Player, as: "Player" }] }]}
-            ],
+            {
+                model: Team,
+                include: [{model: PlayerInTeam, as: "PlayerInTeams", include: [{model: Player, as: "Player"}]}]
+            }
+        ],
         where: {
             id: matchId
         }
@@ -293,7 +304,7 @@ const getAllMatchesOfPlayer = async (playerSteamId) => {
     const matches = await Player.findOne({
         include: [
             // { model: PlayerInTeam, include: [{ model: Team, include: [{ model: Match }] }]}
-            { model: PlayerInTeam }
+            {model: PlayerInTeam}
         ],
         where: {
             steamId: playerSteamId
@@ -309,7 +320,7 @@ const getAllMatchesOfPlayer = async (playerSteamId) => {
 const getAllPlayersOfTeam = async (teamId) => {
     const players = await Team.findOne({
         include: [
-            { model: PlayerInTeam, include: [{ model: Player }]}
+            {model: PlayerInTeam, include: [{model: Player}]}
         ],
         where: {
             id: teamId

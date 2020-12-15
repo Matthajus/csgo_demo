@@ -7,10 +7,6 @@ import {Round} from "../models/Round";
 import {PlayerInTeam} from "../models/PlayerInTeam";
 import {Player} from "../models/Player";
 
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-};
-
 @Injectable()
 export class CsgoService {
   private url = 'http://localhost:3000/api/';
@@ -44,8 +40,8 @@ export class CsgoService {
     return this.http.get<Player>(`${this.url}matches/${steamId}`);
   }
 
-  getAllTeamsOfMatch(matchId: number): Observable<Match> {
-    return this.http.get<Match>(`${this.url}teams/${matchId}`);
+  getAllTeamsOfMatch(matchId: number): Promise<Match> {
+    return this.http.get<Match>(`${this.url}teams/${matchId}`).toPromise();
   }
 
   getAllRoundsOfMatch(matchId: number): Observable<Match> {
