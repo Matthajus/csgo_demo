@@ -1,0 +1,16 @@
+<div [ngStyle]="{'background-color':  circleColor,
+'border-radius': '50%',
+  'width': size,
+  'height': size,
+  'display': 'flex',
+  'justify-content': 'center',
+  'align-items': 'center',
+  'margin': marginSize}">
+  <div class="initials">
+    {{ initials }}
+  </div>
+</div>
+
+<div *ngIf="nicknames" [ngStyle]="{'margin': marginSize}">
+  {{ name.substring(0, 5) }}
+</div>

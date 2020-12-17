@@ -5,6 +5,13 @@ exports.getAllMatches = (req, res) => {
         res.json(matches);
     });
 };
+
+exports.getMatchById = (req, res) => {
+    db.getMatchById(req.params.matchId).then(match => {
+        res.json(match);
+    });
+};
+
 exports.getAllRounds = (req, res) => {
     db.getAllRounds().then(rounds => {
         res.json(rounds);

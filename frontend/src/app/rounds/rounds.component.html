@@ -1,0 +1,14 @@
+<!--<div class="horizontal">-->
+<!--  <ng-container *ngFor="let round of match.Rounds">-->
+<!--    <app-round-detail [round]="round"></app-round-detail>-->
+<!--  </ng-container>-->
+<!--</div>-->
+<table>
+  <tr>
+  <ng-container *ngFor="let round of match.Rounds">
+      <td>
+        <app-round-detail [round]="round" [ctId]="ctId" [terId]="terId"></app-round-detail>
+      </td>
+  </ng-container>
+  </tr>
+</table>

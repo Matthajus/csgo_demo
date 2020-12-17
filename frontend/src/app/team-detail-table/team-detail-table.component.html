@@ -1,0 +1,55 @@
+<table mat-table [dataSource]="team" class="mat-elevation-z8">
+  <ng-container matColumnDef="gravatar">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let player">
+      <app-gravatar [nicknames]="false" [name]="player.Player.nickName"></app-gravatar>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th class="name-column" mat-header-cell *matHeaderCellDef></th>
+    <td class="name-column" mat-cell *matCellDef="let player"> {{player.Player.nickName}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="rank">
+    <th mat-header-cell *matHeaderCellDef>Rank</th>
+    <td mat-cell *matCellDef="let player"> {{player.Player.rank}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="k">
+    <th mat-header-cell *matHeaderCellDef> K</th>
+    <td mat-cell *matCellDef="let player"> {{player.kills}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="d">
+    <th mat-header-cell *matHeaderCellDef> D</th>
+    <td mat-cell *matCellDef="let player"> {{player.deaths}}</td>
+  </ng-container>
+  <ng-container matColumnDef="a">
+    <th mat-header-cell *matHeaderCellDef> A</th>
+    <td mat-cell *matCellDef="let player"> {{player.assists}}</td>
+  </ng-container>
+  <ng-container matColumnDef="+-">
+    <th mat-header-cell *matHeaderCellDef> +/-</th>
+    <td mat-cell *matCellDef="let player">
+      <div *ngIf="(player.kills - player.deaths)>0" class="winner">{{player.kills - player.deaths}}</div>
+      <div *ngIf="(player.kills - player.deaths)<0" class="looser">{{player.kills - player.deaths}}</div>
+      <div *ngIf="(player.kills - player.deaths)==0">{{player.kills - player.deaths}}</div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="kd">
+    <th mat-header-cell *matHeaderCellDef> K/D</th>
+    <td mat-cell *matCellDef="let player"> {{round(player.kill_death)}}</td>
+  </ng-container>
+  <ng-container matColumnDef="mvps">
+    <th mat-header-cell *matHeaderCellDef> MVPs</th>
+    <td mat-cell *matCellDef="let player"> {{player.mvps}}</td>
+  </ng-container>
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef> Score</th>
+    <td mat-cell *matCellDef="let player"> {{player.score}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="./{{row.id}}">
+  </tr>
+</table>

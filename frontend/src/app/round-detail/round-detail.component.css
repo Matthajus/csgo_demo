@@ -1,0 +1,19 @@
+hr{
+  width: 100%;
+}
+
+hr.invisible{
+  visibility: hidden;
+}
+
+hr.ct{
+  width: 95%;
+  height: 5px;
+  background-color: orange;
+}
+
+hr.ter{
+  width: 95%;
+  height: 5px;
+  background-color: deepskyblue;
+}

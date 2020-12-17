@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Match} from "../models/Match";
 import {Team} from "../models/Team";
@@ -18,6 +18,10 @@ export class CsgoService {
 
   getAllMatches(): Observable<Match[]> {
     return this.http.get<Match[]>(`${this.url}matches`);
+  }
+
+  getMatchById(matchId: number): Observable<Match> {
+    return this.http.get<Match>(`${this.url}match/${matchId}`);
   }
 
   getAllTeams(): Observable<Team[]> {

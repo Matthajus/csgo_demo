@@ -21,8 +21,23 @@ const getAllMatches = async () => {
     console.log("All matches:", JSON.stringify(matches, null, 4));
     return matches;
 }
-getAllMatches().then(() => console.log("Finish!"))
-
+// getAllMatches().then(() => console.log("Finish!"))
+const getMatchById = async (matchId) => {
+    const matches = await Match.findOne({
+        include: {
+            model: Team,
+            include: [{model: PlayerInTeam, as: "PlayerInTeams", include: [{model: Player, as: "Player"}]}]
+        },
+        where:{
+            id: matchId
+        },
+        order: [
+            [Team, 'teamSide', 'asc']
+        ]
+    });
+    console.log("Match:", JSON.stringify(matches, null, 4));
+    return matches;
+}
 // Find all rounds
 // Raw SQL: SELECT * FROM "rounds";
 const getAllRounds = async () => {
@@ -333,6 +348,7 @@ const getAllPlayersOfTeam = async (teamId) => {
 
 module.exports = {
     getAllMatches: getAllMatches,
+    getMatchById: getMatchById,
     getAllRounds: getAllRounds,
     getAllTeams: getAllTeams,
     getAllPlayerInTeams: getAllPlayerInTeams,

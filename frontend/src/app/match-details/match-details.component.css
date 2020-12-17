@@ -1,0 +1,26 @@
+table {
+  width: 95%;
+  margin: 20px auto;
+}
+
+p.winner{
+  color: green;
+  font-size: 46px;
+}
+
+p.looser{
+  color: darkred;
+  font-size: 46px;
+}
+
+hr.winner{
+  width: 95%;
+  height: 5px;
+  background-color: green;
+}
+
+hr.looser{
+  width: 95%;
+  height: 5px;
+  background-color: darkred;
+}

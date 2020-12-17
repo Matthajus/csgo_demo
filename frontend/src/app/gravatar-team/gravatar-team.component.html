@@ -1,5 +1,5 @@
 <div class="horizontal">
   <ng-container *ngFor="let pin of team.PlayerInTeams">
-    <app-gravatar [name]="pin.Player.nickName"></app-gravatar>
+    <app-gravatar [nicknames]="nicknames" [name]="pin.Player.nickName"></app-gravatar>
   </ng-container>
 </div>

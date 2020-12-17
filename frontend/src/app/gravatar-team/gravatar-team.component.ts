@@ -10,7 +10,11 @@ export class GravatarTeamComponent implements OnInit {
 
   @Input()
   public team: Team;
-  constructor() { }
+  @Input()
+  public nicknames: boolean;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

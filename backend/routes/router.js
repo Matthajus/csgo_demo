@@ -5,6 +5,7 @@ var router = express.Router();
 
 router.get('/matches', controller.getAllMatches);
 router.get('/matches/:steamId', controller.getAllMatchesOfPlayer);
+router.get('/match/:matchId', controller.getMatchById);
 
 router.get('/teams', controller.getAllTeams);
 router.get('/teams/:matchId', controller.getAllTeamsOfMatch);

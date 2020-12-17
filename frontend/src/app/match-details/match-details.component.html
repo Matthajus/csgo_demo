@@ -1,0 +1,74 @@
+<mat-grid-list cols="12" rowHeight="1.4:1">
+  <mat-grid-tile colspan="4">CT
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">{{match.map}}
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">TERRORIST
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">
+    <app-gravatar-team [nicknames]="true" [team]="match.Teams[0]"></app-gravatar-team>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+    <div *ngIf="match.Teams[0].score > match.Teams[1].score">
+      <p class="winner"> {{match.Teams[0].score}} </p>
+    </div>
+    <div *ngIf="match.Teams[0].score < match.Teams[1].score">
+      <p class="looser"> {{match.Teams[0].score}} </p>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    <div>
+      <p>{{match.serverName.substring(0, match.serverName.indexOf('('))}}</p>
+      <p>{{match.createdAt}}</p>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1">
+    <div *ngIf="match.Teams[0].score < match.Teams[1].score">
+      <p class="winner"> {{match.Teams[1].score}} </p>
+    </div>
+    <div *ngIf="match.Teams[0].score > match.Teams[1].score">
+      <p class="looser"> {{match.Teams[1].score}} </p>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="4">
+    <app-gravatar-team [nicknames]="true" [team]="match.Teams[1]"></app-gravatar-team>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<table>
+  <tr>
+    <td>
+      <app-team-detail-table [team]="match.Teams[0].PlayerInTeams"></app-team-detail-table>
+      <div *ngIf="match.Teams[0].score > match.Teams[1].score">
+        <hr class="winner">
+      </div>
+      <div *ngIf="match.Teams[0].score < match.Teams[1].score">
+        <hr class="looser">
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <app-rounds [matchId]="match.id" [ctId]="match.Teams[0].id" [terId]="match.Teams[1].id"></app-rounds>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div *ngIf="match.Teams[0].score < match.Teams[1].score">
+        <hr class="winner">
+      </div>
+      <div *ngIf="match.Teams[0].score > match.Teams[1].score">
+        <hr class="looser">
+      </div>
+      <app-team-detail-table [team]="match.Teams[1].PlayerInTeams"></app-team-detail-table>
+    </td>
+  </tr>
+</table>
+
+
