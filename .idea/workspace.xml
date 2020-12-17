@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22d7dd2d-ed67-4eab-822d-7b8445d78285" name="Default Changelist" comment="match detail table">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="22d7dd2d-ed67-4eab-822d-7b8445d78285" name="Default Changelist" comment="match detail table" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,9 +101,9 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Node.js.bin\www" />
       <item itemvalue="Node.js.bin\parser" />
       <item itemvalue="Node.js.query" />
-      <item itemvalue="Node.js.bin\www" />
       <item itemvalue="npm.start" />
     </list>
     <recent_temporary>
@@ -115,6 +113,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="22d7dd2d-ed67-4eab-822d-7b8445d78285" name="Default Changelist" comment="" />
