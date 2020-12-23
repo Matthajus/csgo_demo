@@ -1,5 +1,10 @@
 <mat-toolbar>
-  <span>CS:GO</span>
+  <button [ngStyle]="{'font-size': '25px'}"
+                     mat-icon-button class="example-icon favorite-icon"
+                     aria-label="Example icon-button with heart icon"
+                     routerLink="">
+  CS:GO
+</button>
   <span class="example-spacer"></span>
   <button [ngStyle]="{'margin-right': '40px'}"
           mat-icon-button class="example-icon favorite-icon"

@@ -1,0 +1,13 @@
+<input class="input" id="file" type="file" (change)="fileChangeEvent($event)" placeholder="Upload file..."
+       accept=".dem"/>
+
+
+<label for="file" id="label">
+  Click here to select file
+</label>
+<!--<mat-icon class="down">arrow_downward</mat-icon>-->
+
+
+<button class="upload" mat-raised-button color="accent" (click)="upload()">
+  <mat-icon>cloud_upload</mat-icon> Save demo
+</button>

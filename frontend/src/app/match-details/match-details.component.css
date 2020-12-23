@@ -13,6 +13,11 @@ p.looser{
   font-size: 46px;
 }
 
+p.same{
+  color: darkblue;
+  font-size: 46px;
+}
+
 hr.winner{
   width: 95%;
   height: 5px;
@@ -23,4 +28,9 @@ hr.looser{
   width: 95%;
   height: 5px;
   background-color: darkred;
+}
+hr.same{
+  width: 95%;
+  height: 5px;
+  background-color: darkblue;
 }

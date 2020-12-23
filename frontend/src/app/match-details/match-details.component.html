@@ -10,7 +10,7 @@
   <mat-grid-tile colspan="4">TERRORIST
   </mat-grid-tile>
   <mat-grid-tile colspan="4">
-    <app-gravatar-team [nicknames]="true" [team]="match.Teams[0]"></app-gravatar-team>
+    <app-gravatar-team [nicknames]="true" [team]="match.Teams[0]" size="50px"></app-gravatar-team>
   </mat-grid-tile>
   <mat-grid-tile colspan="1">
     <div *ngIf="match.Teams[0].score > match.Teams[1].score">
@@ -18,6 +18,9 @@
     </div>
     <div *ngIf="match.Teams[0].score < match.Teams[1].score">
       <p class="looser"> {{match.Teams[0].score}} </p>
+    </div>
+    <div *ngIf="match.Teams[0].score == match.Teams[1].score">
+      <p class="same"> {{match.Teams[0].score}} </p>
     </div>
   </mat-grid-tile>
   <mat-grid-tile colspan="2">
@@ -33,21 +36,27 @@
     <div *ngIf="match.Teams[0].score > match.Teams[1].score">
       <p class="looser"> {{match.Teams[1].score}} </p>
     </div>
+    <div *ngIf="match.Teams[0].score == match.Teams[1].score">
+      <p class="same"> {{match.Teams[1].score}} </p>
+    </div>
   </mat-grid-tile>
   <mat-grid-tile colspan="4">
-    <app-gravatar-team [nicknames]="true" [team]="match.Teams[1]"></app-gravatar-team>
+    <app-gravatar-team [nicknames]="true" [team]="match.Teams[1]" size="50px"></app-gravatar-team>
   </mat-grid-tile>
 </mat-grid-list>
 
 <table>
   <tr>
     <td>
-      <app-team-detail-table [team]="match.Teams[0].PlayerInTeams"></app-team-detail-table>
+      <app-team-detail-table [team]="match.Teams[0].PlayerInTeams" teamSide="0"></app-team-detail-table>
       <div *ngIf="match.Teams[0].score > match.Teams[1].score">
         <hr class="winner">
       </div>
       <div *ngIf="match.Teams[0].score < match.Teams[1].score">
         <hr class="looser">
+      </div>
+      <div *ngIf="match.Teams[0].score == match.Teams[1].score">
+        <hr class="same">
       </div>
     </td>
   </tr>
@@ -66,7 +75,10 @@
       <div *ngIf="match.Teams[0].score > match.Teams[1].score">
         <hr class="looser">
       </div>
-      <app-team-detail-table [team]="match.Teams[1].PlayerInTeams"></app-team-detail-table>
+      <div *ngIf="match.Teams[0].score == match.Teams[1].score">
+        <hr class="same">
+      </div>
+      <app-team-detail-table [team]="match.Teams[1].PlayerInTeams" teamSide="1"></app-team-detail-table>
     </td>
   </tr>
 </table>

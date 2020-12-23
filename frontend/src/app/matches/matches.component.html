@@ -22,7 +22,7 @@
   <ng-container matColumnDef="Team1">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let match">
-      <app-gravatar-team [nicknames]="false" [team]="match.Teams[0]"></app-gravatar-team>
+      <app-gravatar-team [nicknames]="false" [team]="match.Teams[0]" size="30px"></app-gravatar-team>
     </td>
   </ng-container>
 
@@ -34,6 +34,9 @@
       </div>
       <div *ngIf="match.Teams[0].score < match.Teams[1].score">
         <div class="looser"><p> {{match.Teams[0].score}} </p></div>
+      </div>
+      <div *ngIf="match.Teams[0].score == match.Teams[1].score">
+        <div class="same"><p> {{match.Teams[0].score}} </p></div>
       </div>
     </td>
   </ng-container>
@@ -47,13 +50,16 @@
       <div *ngIf="match.Teams[0].score > match.Teams[1].score">
         <div class="looser"><p> {{match.Teams[1].score}} </p></div>
       </div>
+      <div *ngIf="match.Teams[0].score == match.Teams[1].score">
+        <div class="same"><p> {{match.Teams[1].score}} </p></div>
+      </div>
     </td>
   </ng-container>
 
   <ng-container matColumnDef="Team2">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let match">
-      <app-gravatar-team [nicknames]="false" [team]="match.Teams[1]"></app-gravatar-team>
+      <app-gravatar-team [nicknames]="false" [team]="match.Teams[1]" size="30px"></app-gravatar-team>
     </td>
   </ng-container>
 

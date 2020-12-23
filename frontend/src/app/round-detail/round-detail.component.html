@@ -1,4 +1,11 @@
 <div *ngIf="round.teamId == ctId">
+  <img src="{{this.image}}" alt="{{this.image}}" [ngStyle]="{'width': '50%'}">
+</div>
+<div *ngIf="round.teamId != ctId">
+  <img class="invisible" src="{{this.image}}" alt="{{this.image}}" [ngStyle]="{'width': '50%'}">
+</div>
+
+<div *ngIf="round.teamId == ctId">
   <hr class="ct">
 </div>
 <div *ngIf="round.teamId != ctId">
@@ -12,4 +19,10 @@
 </div>
 <div *ngIf="round.teamId != terId">
   <hr class="invisible">
+</div>
+<div *ngIf="round.teamId == terId">
+  <img src="{{this.image}}" alt="{{this.image}}" [ngStyle]="{'width': '50%'}">
+</div>
+<div *ngIf="round.teamId != terId">
+  <img class="invisible" src="{{this.image}}" alt="{{this.image}}" [ngStyle]="{'width': '50%'}">
 </div>

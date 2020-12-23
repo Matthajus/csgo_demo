@@ -1,0 +1,30 @@
+.avatar {
+  margin: 30px;
+}
+
+.horizontal {
+  display: flex;
+  /*justify-content: space-evenly;*/
+}
+
+.nickname {
+  margin-top: 50px;
+}
+
+table {
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  table-layout: fixed;
+}
+
+.winner {
+  color: green;
+}
+
+.looser {
+  color: darkred;
+}
+.same {
+  color: darkblue;
+}

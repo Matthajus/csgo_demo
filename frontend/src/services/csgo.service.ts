@@ -44,8 +44,12 @@ export class CsgoService {
     return this.http.get<Player>(`${this.url}matches/${steamId}`);
   }
 
-  getAllTeamsOfMatch(matchId: number): Promise<Match> {
-    return this.http.get<Match>(`${this.url}teams/${matchId}`).toPromise();
+  getAllMatchesOfPlayerById(playerId: number): Observable<Player> {
+    return this.http.get<Player>(`${this.url}playerMatches/${playerId}`);
+  }
+
+  getAllTeamsOfMatch(matchId: number): Observable<Match> {
+    return this.http.get<Match>(`${this.url}teams/${matchId}`);
   }
 
   getAllRoundsOfMatch(matchId: number): Observable<Match> {

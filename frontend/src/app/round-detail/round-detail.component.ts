@@ -13,11 +13,18 @@ export class RoundDetailComponent implements OnInit {
   ctId: number;
   @Input()
   terId: number;
+  public image: string;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    if (this.round.typeOfEnd == 1) {
+      this.image = 'assets/images/1.png';
+    } else if (this.round.typeOfEnd == 12) {
+      this.image = 'assets/images/12.png';
+    } else {
+      this.image = 'assets/images/89.png';
+    }
   }
-
 }

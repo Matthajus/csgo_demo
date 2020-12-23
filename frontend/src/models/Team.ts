@@ -1,4 +1,5 @@
 import {PlayerInTeam} from "./PlayerInTeam";
+import {Match} from "./Match";
 
 export class Team {
   id: number;
@@ -6,4 +7,5 @@ export class Team {
   teamSide: string
   score: number;
   PlayerInTeams:PlayerInTeam[];
+  Match: Match;
 }

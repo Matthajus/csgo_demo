@@ -1,5 +1,8 @@
 import {Player} from "./Player";
 
+class Team {
+}
+
 export class PlayerInTeam {
   id: number;
   teamId: number;
@@ -10,5 +13,6 @@ export class PlayerInTeam {
   mvps: number;
   score: number;
   kill_death: number;
-  Player: Player
+  Player: Player;
+  Team: Team
 }

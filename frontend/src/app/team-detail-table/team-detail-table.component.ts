@@ -10,6 +10,8 @@ export class TeamDetailTableComponent implements OnInit {
 
   @Input()
   team: PlayerInTeam[];
+  @Input()
+  teamSide: number;
   displayedColumns: string[] = ['gravatar', 'name', 'rank', 'k', 'd', 'a', '+-', 'kd', 'mvps', 'score'];
 
   constructor() {
@@ -21,4 +23,5 @@ export class TeamDetailTableComponent implements OnInit {
   round(num: number) {
     return num.toFixed(1);
   }
+
 }

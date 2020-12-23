@@ -15,14 +15,19 @@ import {GravatarComponent} from './gravatar/gravatar.component';
 import {GravatarTeamComponent} from './gravatar-team/gravatar-team.component';
 import {MatchDetailsComponent} from './match-details/match-details.component';
 import {AppRoutingModule} from './app-routing.module';
-import {DownloadDemoComponent} from './download-demo/download-demo.component';
 import {RouterModule} from "@angular/router";
 import {MatGridListModule} from "@angular/material/grid-list";
 import { TeamDetailTableComponent } from './team-detail-table/team-detail-table.component';
 import {MatTabsModule} from "@angular/material/tabs";
 import { RoundsComponent } from './rounds/rounds.component';
 import { RoundDetailComponent } from './round-detail/round-detail.component';
-
+import { PlayerComponent } from './player/player.component';
+import { UploadDemoComponent } from './upload-demo/upload-demo.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatCardModule} from "@angular/material/card";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {NgxMatFileInputModule} from "@angular-material-components/file-input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
 
@@ -32,10 +37,11 @@ import { RoundDetailComponent } from './round-detail/round-detail.component';
     GravatarComponent,
     GravatarTeamComponent,
     MatchDetailsComponent,
-    DownloadDemoComponent,
     TeamDetailTableComponent,
     RoundsComponent,
-    RoundDetailComponent
+    RoundDetailComponent,
+    PlayerComponent,
+    UploadDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +56,12 @@ import { RoundDetailComponent } from './round-detail/round-detail.component';
     RouterModule,
     MatGridListModule,
     MatTabsModule,
-
+    MatProgressBarModule,
+    MatCardModule,
+    MatFormFieldModule,
+    //npm install --save @angular-material-components/file-input
+    NgxMatFileInputModule,
+    ReactiveFormsModule
   ],
   providers: [CsgoService],
   bootstrap: [AppComponent]

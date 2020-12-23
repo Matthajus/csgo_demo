@@ -16,8 +16,6 @@ export class MatchesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMatches();
-    // this.computeMinutes(this.matches[0].createdAt.toString());
-    // this.getTeamsOfMatch(1);
   }
 
   getMatches() {
@@ -26,7 +24,6 @@ export class MatchesComponent implements OnInit {
         console.log(matches);
         this.matches = matches;
       });
-    // return this.matches;
   }
 
   round(playTime: number): number {
@@ -71,30 +68,4 @@ export class MatchesComponent implements OnInit {
     }));
     return d;
   }
-
-  // getTeamsOfMatch(matchId: number): Team[] {
-  //   this.csgoService.getAllTeamsOfMatch(matchId)
-  //     .then(
-  //       match => {
-  //         console.log(match);
-  //         this.teamsOfMatch = match.Teams;
-  //       }
-  //     );
-  //   return this.teamsOfMatch;
-  // }
-
-  //
-  // getRoundsOfMatch(matchId: number) {
-  //   console.log(matchId);
-  //   return this.csgoService.getAllRoundsOfMatch(matchId);
-  // }
-  //
-  // getAllPLayersOfMatch(matchId: number) {
-  //   return this.csgoService.getAllPlayersOfMatch(matchId)
-  //     .subscribe(
-  //       matches => {
-  //         console.log(matches);
-  //         this.pom = matches;
-  //       }
-  //     );}
 }

@@ -1,0 +1,66 @@
+<div class="horizontal">
+  <div class="avatar">
+    <app-gravatar [nicknames]="false" [name]="player.nickName" size="100px" iconType=2></app-gravatar>
+  </div>
+  <div class="nickname">
+    <p>{{player.nickName}}</p>
+  </div>
+</div>
+
+<table mat-table [dataSource]="player.PlayerInTeams" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="date">
+    <th [ngStyle]="{'width': '15%'}" mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let pin"> {{formatDate(pin.Team.Match.createdAt) | date:'short'}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="map">
+    <th [ngStyle]="{'width': '15%'}" class="name-column" mat-header-cell *matHeaderCellDef>Map</th>
+    <td class="name-column" mat-cell *matCellDef="let pin"> {{pin.Team.Match.map}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="score">
+    <th class="name-column" mat-header-cell *matHeaderCellDef>Score</th>
+    <td class="name-column" [ngStyle]="{'color': isWinner(pin)}" mat-cell
+        *matCellDef="let pin"> {{getAllTeamsOfMatch(pin)}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="rank">
+    <th mat-header-cell *matHeaderCellDef>Rank</th>
+    <td mat-cell *matCellDef="let pin"> {{player.rank}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="k">
+    <th mat-header-cell *matHeaderCellDef> K</th>
+    <td mat-cell *matCellDef="let pin"> {{pin.kills}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="d">
+    <th mat-header-cell *matHeaderCellDef> D</th>
+    <td mat-cell *matCellDef="let pin"> {{pin.deaths}}</td>
+  </ng-container>
+  <ng-container matColumnDef="a">
+    <th mat-header-cell *matHeaderCellDef> A</th>
+    <td mat-cell *matCellDef="let pin"> {{pin.assists}}</td>
+  </ng-container>
+  <ng-container matColumnDef="+-">
+    <th mat-header-cell *matHeaderCellDef> +/-</th>
+    <td mat-cell *matCellDef="let pin">
+      <div *ngIf="(pin.kills - pin.deaths)>0" class="winner">{{pin.kills - pin.deaths}}</div>
+      <div *ngIf="(pin.kills - pin.deaths)<0" class="looser">{{pin.kills - pin.deaths}}</div>
+      <div *ngIf="(pin.kills - pin.deaths)==0" class="same">{{pin.kills - pin.deaths}}</div>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="kd">
+    <th mat-header-cell *matHeaderCellDef> K/D</th>
+    <td mat-cell *matCellDef="let pin"> {{round(pin.kill_death)}}</td>
+  </ng-container>
+  <ng-container matColumnDef="mvps">
+    <th mat-header-cell *matHeaderCellDef> MVPs</th>
+    <td mat-cell *matCellDef="let pin"> {{pin.mvps}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="../../match/{{row.Team.Match.id}}">
+  </tr>
+</table>

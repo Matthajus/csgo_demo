@@ -19,7 +19,7 @@ router.get('/players', controller.getAllPlayers);
 router.get('/players/match/:matchId', controller.getAllPlayersOfMatch);
 router.get('/players/team/:teamId', controller.getAllPlayersOfTeam);
 router.get('/player/:steamId', controller.getPlayerBySteamId);
+router.get('/playerMatches/:playerId', controller.getAllMatchesOfPlayerById);
 
 router.get('/playerId/:steamId', controller.getPlayerIdBySteamId);
-
 module.exports = router;

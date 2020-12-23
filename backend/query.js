@@ -26,18 +26,25 @@ const getMatchById = async (matchId) => {
     const matches = await Match.findOne({
         include: {
             model: Team,
-            include: [{model: PlayerInTeam, as: "PlayerInTeams", include: [{model: Player, as: "Player"}]}]
+            include: [{
+                model: PlayerInTeam, as: "PlayerInTeams",
+                include: [{
+                    model: Player, as: "Player"
+                }]
+            }]
         },
-        where:{
+        where: {
             id: matchId
         },
         order: [
-            [Team, 'teamSide', 'asc']
+            [Team, 'teamSide', 'asc'],
+            [Team, PlayerInTeam, 'score', 'desc'],
         ]
     });
     console.log("Match:", JSON.stringify(matches, null, 4));
     return matches;
 }
+// getMatchById(1).then(() => console.log("Finish!"))
 // Find all rounds
 // Raw SQL: SELECT * FROM "rounds";
 const getAllRounds = async () => {
@@ -318,8 +325,8 @@ const getAllPlayersOfMatch = async (matchId) => {
 const getAllMatchesOfPlayer = async (playerSteamId) => {
     const matches = await Player.findOne({
         include: [
-            // { model: PlayerInTeam, include: [{ model: Team, include: [{ model: Match }] }]}
-            {model: PlayerInTeam}
+            {model: PlayerInTeam, include: [{model: Team, include: [{model: Match}]}]}
+            // {model: PlayerInTeam}
         ],
         where: {
             steamId: playerSteamId
@@ -330,6 +337,19 @@ const getAllMatchesOfPlayer = async (playerSteamId) => {
 }
 // getAllMatchesOfPlayer("STEAM_1:1:80015964").then(() => console.log("Finish!"))
 
+const getAllMatchesOfPlayerById = async (playerId) => {
+    const matches = await Player.findOne({
+        include: [
+            {model: PlayerInTeam, include: [{model: Team, include: [{model: Match, include: [{model: Team}]}]}]}
+        ],
+        where: {
+            id: playerId
+        }
+    })
+    console.log("All matches od player:", JSON.stringify(matches, null, 4));
+    return matches;
+}
+// getAllMatchesOfPlayerById(1).then(() => console.log("Finish!"))
 // Find all players of team by given teamID
 // Raw SQL: SELECT * FROM "Players" p JOIN "PlayerInTeams" pit ON p.id = pit.playerId JOIN "Teams" t ON pit.teamId = t.id WHERE t.id = ???;
 const getAllPlayersOfTeam = async (teamId) => {
@@ -370,5 +390,6 @@ module.exports = {
     getAllTeamsOfMatch: getAllTeamsOfMatch,
     getAllPlayersOfMatch: getAllPlayersOfMatch,
     getAllMatchesOfPlayer: getAllMatchesOfPlayer,
-    getAllPlayersOfTeam: getAllPlayersOfTeam
+    getAllPlayersOfTeam: getAllPlayersOfTeam,
+    getAllMatchesOfPlayerById: getAllMatchesOfPlayerById
 }

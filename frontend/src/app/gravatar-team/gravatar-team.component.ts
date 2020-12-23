@@ -12,11 +12,19 @@ export class GravatarTeamComponent implements OnInit {
   public team: Team;
   @Input()
   public nicknames: boolean;
+  @Input()
+  public size: string;
+  public teamSide: number;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    if (this.team.teamSide == 'CT') {
+      this.teamSide = 0;
+    } else {
+      this.teamSide = 1;
+    }
   }
 
 }

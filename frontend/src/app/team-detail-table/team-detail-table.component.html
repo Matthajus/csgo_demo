@@ -2,7 +2,7 @@
   <ng-container matColumnDef="gravatar">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let player">
-      <app-gravatar [nicknames]="false" [name]="player.Player.nickName"></app-gravatar>
+      <app-gravatar [nicknames]="false" [name]="player.Player.nickName" size="30px" [iconType]="teamSide"></app-gravatar>
     </td>
   </ng-container>
 
@@ -50,6 +50,6 @@
     <td mat-cell *matCellDef="let player"> {{player.score}}</td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="./{{row.id}}">
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="../../player/{{row.Player.id}}">
   </tr>
 </table>

@@ -11,7 +11,11 @@ exports.getMatchById = (req, res) => {
         res.json(match);
     });
 };
-
+exports.getAllMatchesOfPlayerById = (req, res) => {
+    db.getAllMatchesOfPlayerById(req.params.playerId).then(player => {
+        res.json(player);
+    })
+}
 exports.getAllRounds = (req, res) => {
     db.getAllRounds().then(rounds => {
         res.json(rounds);
