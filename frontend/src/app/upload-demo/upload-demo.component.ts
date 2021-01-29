@@ -28,6 +28,7 @@ export class UploadDemoComponent implements OnInit {
   }
 
   makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
+
     return new Promise((resolve, reject) => {
       var formData: any = new FormData();
       var xhr = new XMLHttpRequest();

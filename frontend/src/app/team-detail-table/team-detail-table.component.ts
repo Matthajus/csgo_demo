@@ -12,7 +12,7 @@ export class TeamDetailTableComponent implements OnInit {
   team: PlayerInTeam[];
   @Input()
   teamSide: number;
-  displayedColumns: string[] = ['gravatar', 'name', 'rank', 'k', 'd', 'a', '+-', 'kd', 'mvps', 'score'];
+  displayedColumns: string[] = ['gravatar', 'name', 'k', 'd', 'a', '+-', 'kd', 'mvps', 'score'];
 
   constructor() {
   }

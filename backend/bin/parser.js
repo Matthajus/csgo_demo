@@ -139,6 +139,7 @@ const parse = async (demo) => {
             this.teamNumber = teamNumber
             this.teamId = 0
             this.playerInTeamId = 0
+            this.playerId = 0
         }
 
         getId() {
@@ -147,6 +148,10 @@ const parse = async (demo) => {
 
         getSteamId() {
             return this.steamId
+        }
+
+        getPlayerId() {
+            return this.playerId;
         }
 
         getNickName() {
@@ -205,6 +210,9 @@ const parse = async (demo) => {
             this.playerInTeamId = id
         }
 
+        setPlayerId(id) {
+            this.playerId = id
+        }
     }
 
 
@@ -297,16 +305,16 @@ const parse = async (demo) => {
             setTimeout(function () {
                 for (let i = 0; i < players.length; i++) {
                     // if player in not in our database we add him, otherwise we get his id and update his nickName
-                    query.getPlayerBySteamId(players[i]).then(p => {
-                        if (JSON.stringify(p, null, 4) === "[]") {
+                    query.getPlayerBySteamId(players[i].steamId).then(p => {
+                        if (p == null) {
                             query.addPlayer(players[i]).then(id => {
                                 players[i].setId(id)
                             })
                         } else {
-                            query.getPlayerIdBySteamId(players[i].getSteamId()).then(id => {
-                                players[i].setId(id)
+                            query.getPlayerIdBySteamId(players[i].steamId).then(id => {
+                                players[i].id = id
                             })
-                            query.updatePlayerNickNameBySteamId(players[i].getSteamId(), players[i].getNickName()).then(() => {
+                            query.updatePlayerNickNameBySteamId(players[i].steamId, players[i].getNickName()).then(() => {
                             })
                         }
                     })
@@ -357,9 +365,96 @@ const parse = async (demo) => {
         demoFile.parse(buffer);
     });
 };
-// const parse = async (demo) => {
-//     console.log(demo.originalname);
-//     return demo.originalname;
-// };
-// parse('/Users/olga_charna/WebstormProjects/csgo_demo/backend/test.dem').then(r => console.log('Finish'));
+
+// const query = require('../query')
+//
+// class Player {
+//     constructor(steamId, nickName, rank, kills, assists, deaths, mvps, score, kill_death, teamNumber) {
+//         this.id = 0
+//         this.steamId = steamId
+//         this.nickName = nickName
+//         this.rank = rank
+//         this.kills = kills
+//         this.assists = assists
+//         this.deaths = deaths
+//         this.mvps = mvps
+//         this.score = score
+//         this.kill_death = kill_death
+//         this.teamNumber = teamNumber
+//         this.teamId = 0
+//         this.playerInTeamId = 0
+//     }
+//
+//     getId() {
+//         return this.id
+//     }
+//
+//     getSteamId() {
+//         return this.steamId
+//     }
+//
+//     getNickName() {
+//         return this.nickName
+//     }
+//
+//     getRank() {
+//         return this.rank
+//     }
+//
+//     getKills() {
+//         return this.kills
+//     }
+//
+//     getAssists() {
+//         return this.assists
+//     }
+//
+//     getDeaths() {
+//         return this.deaths
+//     }
+//
+//     getMvps() {
+//         return this.mvps
+//     }
+//
+//     getScore() {
+//         return this.score
+//     }
+//
+//     getKill_Death() {
+//         return this.kill_death
+//     }
+//
+//     getTeamNumber() {
+//         return this.teamNumber
+//     }
+//
+//     getTeamId() {
+//         return this.teamId
+//     }
+//
+//     getPlayerInTeamId() {
+//         return this.playerInTeamId
+//     }
+//
+//     setId(id) {
+//         this.id = id
+//     }
+//
+//     setTeamId(id) {
+//         this.teamId = id
+//     }
+//
+//     setPlayerInTeamId(id) {
+//         this.playerInTeamId = id
+//     }
+//
+// }
+
+// query.addPlayer(new Player("steam", 'name', 0, 1, 2, 3, 4, 5, 6, 8))
+//     .then(r => console.log("add"));
+// query.addPlayerInTeams(new Player("steam", 'name', 0, 1, 2, 3, 4, 5, 6, 10))
+//     .then(r => console.log("add"));
+// parse("../uploads/2fc1ee7113cac911c380c9b8b0bd7287")
 module.exports = {parse: parse}
+

@@ -11,7 +11,7 @@ import {Player} from "../../models/Player";
 })
 export class PlayerComponent implements OnInit {
   player: Player;
-  displayedColumns: string[] = ['date', 'map', 'score', 'rank', 'k', 'd', 'a', '+-', 'kd', 'mvps'];
+  displayedColumns: string[] = ['date', 'map', 'score', 'k', 'd', 'a', '+-', 'kd', 'mvps'];
 
   constructor(private route: ActivatedRoute, private csgoService: CsgoService) {
     // this.match = match;

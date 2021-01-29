@@ -9,7 +9,7 @@ import {CsgoService} from "../../services/csgo.service";
 })
 export class MatchesComponent implements OnInit {
   matches: Match[];
-  displayedColumns: string[] = ['map', 'createdAt', 'minutesAgo', 'rank', 'Team1', 'Teams1.score', 'Teams2.score', 'Team2', 'k', 'd', 'a'];
+  displayedColumns: string[] = ['map', 'createdAt', 'minutesAgo', 'Team1', 'Teams1.score', 'Teams2.score', 'Team2', 'k', 'd', 'a'];
 
   constructor(private csgoService: CsgoService) {
   }

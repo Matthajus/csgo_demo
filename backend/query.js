@@ -93,8 +93,12 @@ const getPlayerBySteamId = async (playerSteamId) => {
             steamId: playerSteamId
         }
     });
-    console.log("Player By SteamId: ", JSON.stringify(foundPlayer, null, 4));
-    return foundPlayer;
+    // console.log("Player By SteamId: ", JSON.stringify(foundPlayer, null, 4));
+    if (foundPlayer == null) {
+        return null
+    } else {
+        return foundPlayer;
+    }
 }
 // getPlayerBySteamId("STEAM_1:1:80015964").then(() => console.log("Finish!"))
 
@@ -102,14 +106,19 @@ const getPlayerBySteamId = async (playerSteamId) => {
 // Raw SQL: SELECT id FROM "Players" WHERE steamId = '???';
 const getPlayerIdBySteamId = async (steamId) => {
     const foundPlayer = await Player.findOne({
+        // attributes: ['id'],
         where: {
             steamId: steamId
         }
     });
-    console.log("Player id: ", foundPlayer.id);
-    return foundPlayer.id;
+    if (foundPlayer == null) {
+        return null
+    } else {
+        console.log("Player id: ", foundPlayer.id);
+        return foundPlayer.id;
+    }
 }
-// getPlayerIdBySteamId('STEAM_1:1:80015964').then(() => console.log("Finish!"))
+getPlayerIdBySteamId('STEAM_1:1:80015964').then(() => console.log("Finish!"))
 
 
 // Create a new match
